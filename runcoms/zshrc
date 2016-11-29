@@ -10,4 +10,66 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+PATH=~/bin:$PATH
+export PATH="/opt/homebrew/bin:$PATH"
+# export PATH="/opt/homebrew/opt/curl/bin:$PATH"
+# alias vi=/usr/local/bin/vim
+# alias vim=/usr/local/bin/vim
+
+GPG_TTY=$(tty)
+export GPG_TTY
+
 # Customize to your needs...
+
+autoload bashcompinit
+bashcompinit
+
+export ERL_AFLAGS="-kernel shell_history enabled"
+
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
+export FZF_DEFAULT_OPTS='--preview "bat --style=numbers --color=always {} | head -200"'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+[ -f ~/bin/dev.sh ] && source ~/bin/dev.sh && compdef _dev dev && compdef _devsm devsm
+
+[ -f ~/bin/_rg.sh ] && source ~/bin/_rg.sh && compdef _rg rg
+
+PATH=~/.local/bin:$PATH
+
+PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+
+PATH="/Users/trevorfenn/Library/Python/2.7/bin:$PATH"
+
+# eval "$(hub alias -s)"
+
+eval "$(fasd --init auto)"
+
+# Aliases
+
+alias v='f -e vim'
+alias :q=exit
+alias q=exit
+alias ed='ed -p:'
+alias be='bundle exec'
+alias bx='bundle exec'
+alias rg='rg --no-messages'
+# alias cat='bat'
+
+if { [ -n "$TMUX" ]; } then
+  clear-pane-title
+fi
+
+source ~/.iterm2_shell_integration.zsh
+
+export GIT_MERGE_AUTOEDIT=no
+
+# podium autocomplete setup
+PODIUM_AC_ZSH_SETUP_PATH=/Users/trevorfenn/Library/Caches/@podiumhq/podium-cli/autocomplete/zsh_setup && test -f $PODIUM_AC_ZSH_SETUP_PATH && source $PODIUM_AC_ZSH_SETUP_PATH;
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+
+alias sc=~/dev/semgrep/semgrep-core/_build/default/src/cli/Main.exe
+
+
+eval $(opam config env)
