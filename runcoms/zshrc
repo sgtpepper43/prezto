@@ -17,3 +17,7 @@ export EDITOR='vim'
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
 
+
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
