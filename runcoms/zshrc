@@ -18,6 +18,8 @@ export EDITOR='vim'
 . $HOME/.asdf/completions/asdf.bash
 
 
-export FZF_DEFAULT_COMMAND='rg --files --hidden --follow'
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+alias :q=exit
