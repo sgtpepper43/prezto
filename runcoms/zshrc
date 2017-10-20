@@ -22,4 +22,12 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+[ -f ~/bin/dev.sh ] && source ~/bin/dev.sh
+
+eval "$(hub alias -s)"
+
+eval "$(fasd --init auto)"
+
+alias v='f -e vim'
+
 alias :q=exit
