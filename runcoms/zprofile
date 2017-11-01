@@ -73,8 +73,6 @@ fi
 
 TMPPREFIX="${TMPDIR%/}/zsh"
 
-# Aliases
-alias ed='ed -p:'
-alias be='bundle exec'
-
 export PATH="$HOME/.cargo/bin:$PATH"
+
+source ~/.zshrc

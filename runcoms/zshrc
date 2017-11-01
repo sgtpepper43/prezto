@@ -28,6 +28,9 @@ eval "$(hub alias -s)"
 
 eval "$(fasd --init auto)"
 
-alias v='f -e vim'
+# Aliases
 
+alias v='f -e vim'
 alias :q=exit
+alias ed='ed -p:'
+alias be='bundle exec'
