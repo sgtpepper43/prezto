@@ -4,6 +4,7 @@
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
+#
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
@@ -23,7 +24,12 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-[ -f ~/bin/dev.sh ] && source ~/bin/dev.sh
+[ -f ~/bin/dev.sh ] && source ~/bin/dev.sh && compdef _dev dev
+
+[ -f ~/bin/_rg.sh ] && source ~/bin/_rg.sh && compdef _rg rg
+
+PATH=~/bin:$PATH
+PATH=~/.local/bin:$PATH
 
 # eval "$(hub alias -s)"
 
@@ -36,7 +42,9 @@ alias :q=exit
 alias q=exit
 alias ed='ed -p:'
 alias be='bundle exec'
+alias bx='bundle exec'
 alias rg='rg --no-messages'
+alias cx='convox'
 
 if { [ -n "$TMUX" ]; } then
   clear-pane-title
